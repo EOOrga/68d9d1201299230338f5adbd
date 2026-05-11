@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0582A6">
+  <meta name="description" content="CHAUVE MICHEL is a local operations app for assets, quality, shifts, and compliance reporting.">
+  <title>CHAUVE MICHEL</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      --navy: #001330;
+      --ink: #071e34;
+      --teal: #0582a6;
+      --cyan: #0abbd3;
+      --gold: #c99222;
+      --green: #1f8f5f;
+      --paper: #f5f9fb;
+      --line: #d9e6ea;
+      --text: #102534;
+      --muted: #52616d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--paper);
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { min-height: 100vh; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px clamp(18px, 5vw, 64px);
+      color: white;
+      background: rgba(0, 19, 48, 0.94);
+      border-bottom: 1px solid rgba(10, 187, 211, 0.26);
+      backdrop-filter: blur(14px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: 0; }
+    .brand img { width: 42px; height: 42px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; font-size: 14px; color: #d8eef5; }
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      align-items: end;
+      padding: clamp(28px, 5vw, 70px);
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(0, 19, 48, 0.95) 0%, rgba(0, 19, 48, 0.78) 44%, rgba(0, 19, 48, 0.22) 100%),
+        url("featured.png");
+      background-position: center;
+      background-size: cover;
+    }
+    .hero-inner { max-width: 780px; padding-bottom: 8vh; }
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: #b7f4ff;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    .kicker::before { content: ""; width: 34px; height: 3px; background: var(--cyan); border-radius: 999px; }
+    h1 {
+      margin: 16px 0 14px;
+      max-width: 760px;
+      font-size: clamp(48px, 9vw, 96px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 640px;
+      margin: 0 0 26px;
+      color: #e8f8fb;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.45;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 8px;
+      font-weight: 900;
+      background: var(--cyan);
+      color: var(--navy);
+    }
+    .button.secondary { background: rgba(255, 255, 255, 0.12); color: white; border: 1px solid rgba(255, 255, 255, 0.26); }
+    main { display: grid; gap: 0; }
+    section { padding: clamp(34px, 5vw, 72px) clamp(18px, 5vw, 64px); }
+    .section-head { max-width: 820px; margin-bottom: 24px; }
+    h2 { margin: 0 0 10px; color: var(--navy); font-size: clamp(28px, 4vw, 44px); letter-spacing: 0; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .tile {
+      min-height: 220px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+    .tile-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      background: #e5f7fb;
+      color: var(--teal);
+      font-weight: 900;
+      font-size: 24px;
+    }
+    h3 { margin: 0 0 10px; color: var(--navy); font-size: 20px; }
+    .tile p, .band p { margin: 0; color: var(--muted); line-height: 1.55; }
+    .band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
+      gap: clamp(20px, 5vw, 64px);
+      align-items: center;
+      color: white;
+      background: var(--ink);
+    }
+    .band h2 { color: white; }
+    .band p { color: #d4e6ec; }
+    .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .metric {
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .metric strong { display: block; color: white; font-size: 34px; line-height: 1; }
+    .metric span { display: block; margin-top: 8px; color: #bfe8ef; font-weight: 700; }
+    .privacy {
+      background: white;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: white;
+    }
+    .contact p { margin: 6px 0 0; color: #d4e6ec; }
+    footer {
+      padding: 24px clamp(18px, 5vw, 64px);
+      color: #d4e6ec;
+      background: var(--navy);
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .band { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .nav-links { display: none; }
+      .hero { min-height: 76vh; align-items: center; }
+      .hero-inner { padding-bottom: 0; }
+      .grid, .metrics { grid-template-columns: 1fr; }
+      .contact { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="nav">
+      <a class="brand" href="#top">
+        <img src="favicon.png" alt="">
+        <span>CHAUVE MICHEL</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#workflow">Workflow</a>
+        <a href="#controls">Controls</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+    </header>
+
+    <section id="top" class="hero">
+      <div class="hero-inner">
+        <div class="kicker">Manage. Control. Schedule. Comply.</div>
+        <h1>CHAUVE MICHEL</h1>
+        <p class="lead">A focused Android workspace for daily operations: asset management, quality checklists, shift coverage, and compliance reporting in one local app.</p>
+        <div class="cta-row">
+          <a class="button" href="#workflow">View workflow</a>
+          <a class="button secondary" href="mailto:support@chauvemichel.com">Contact support</a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="workflow">
+        <div class="section-head">
+          <h2>Built for the operating day</h2>
+          <p>CHAUVE MICHEL keeps high-frequency business tasks close to the people who update them, with clear lists, status signals, and device-local records.</p>
+        </div>
+        <div class="grid">
+          <article class="tile">
+            <div class="tile-icon">A</div>
+            <h3>Asset management</h3>
+            <p>Track equipment ownership, service attention, tags, zones, and operating notes.</p>
+          </article>
+          <article class="tile">
+            <div class="tile-icon">Q</div>
+            <h3>Quality control</h3>
+            <p>Record inspection areas, checklist scope, completion state, scores, and exceptions.</p>
+          </article>
+          <article class="tile">
+            <div class="tile-icon">S</div>
+            <h3>Shift scheduling</h3>
+            <p>Plan active and upcoming shift coverage with leads, windows, and operator counts.</p>
+          </article>
+          <article class="tile">
+            <div class="tile-icon">C</div>
+            <h3>Compliance reporting</h3>
+            <p>Maintain report status, owners, due dates, and evidence notes for local follow-up.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="controls" class="band">
+        <div>
+          <h2>Operational status at a glance</h2>
+          <p>The dashboard summarizes ready assets, quality scores, active shifts, and open issues so supervisors can decide what needs attention before handoff.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>4</strong><span>Core work areas</span></div>
+          <div class="metric"><strong>0</strong><span>External services required</span></div>
+          <div class="metric"><strong>100%</strong><span>Device-local records</span></div>
+          <div class="metric"><strong>1</strong><span>Private workspace</span></div>
+        </div>
+      </section>
+
+      <section id="privacy" class="privacy">
+        <div class="section-head">
+          <h2>Local by design</h2>
+          <p>The Android app does not require registration, cloud sync, analytics, advertising identifiers, or external APIs. Records are saved in local app storage on the device.</p>
+        </div>
+        <div class="contact">
+          <div>
+            <strong>Support</strong>
+            <p>Questions about the CHAUVE MICHEL app or privacy policy.</p>
+          </div>
+          <a class="button" href="mailto:support@chauvemichel.com">support@chauvemichel.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>CHAUVE MICHEL - Android operations app for asset, quality, shift, and compliance work.</footer>
+  </div>
+</body>
+</html>
