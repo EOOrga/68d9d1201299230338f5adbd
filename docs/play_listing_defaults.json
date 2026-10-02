@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "applications": {
+    "com.chauvemichel.operations": {
+      "title": "CHAUVE MICHEL",
+      "short_description": "Manage assets, inspections, shifts, and compliance records locally.",
+      "full_description": "CHAUVE MICHEL helps operations teams keep daily business tasks organized from one Android workspace. Track critical assets, monitor service attention, record quality checks, schedule shift coverage, and prepare compliance notes without account setup.\n\nThe app is built for site managers, supervisors, and small teams that need fast local records during the operating day. Records stay on the device and can be updated as work changes across receiving, storage, dispatch, and quality review.",
+      "source_screenshots": [
+        "docs/screens/1.png",
+        "docs/screens/2.png",
+        "docs/screens/3.png"
+      ],
+      "generated_from": "existing repository listing metadata and README",
+      "generated_at": "2026-10-02T21:20:20.408501+00:00"
+    }
+  }
+}
