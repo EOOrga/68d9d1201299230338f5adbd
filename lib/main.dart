@@ -485,7 +485,7 @@ class OperationsRepository {
     complianceReports = [
       const ComplianceRecord(
         id: 'compliance-001',
-        title: 'Weekly safety register',
+        title: 'CHAUVE MICHEL',
         owner: 'Operations',
         dueDate: 'May 12',
         status: 'Filed',

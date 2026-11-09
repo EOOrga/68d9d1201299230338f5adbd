@@ -23,7 +23,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.chauvemichel.operations"
+        applicationId = "com.chauvemichel.hjlll"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

@@ -1,4 +1,4 @@
-name: chauve_michel_ops
+name: hjlll
 description: "Local operations workspace for CHAUVE MICHEL asset, quality, shift, and compliance tracking."
 publish_to: 'none'
 version: 1.0.0+1
@@ -27,6 +27,6 @@ flutter_launcher_icons:
   android: true
   ios: false
   image_path: "docs/icon.png"
-  adaptive_icon_background: "#001330"
-  adaptive_icon_foreground: "docs/icon.png"
+  adaptive_icon_background: "#B81FFF"
+  adaptive_icon_foreground: docs/icon.png
   min_sdk_android: 23

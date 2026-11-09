@@ -1,0 +1,1 @@
+Manage assets, inspections, shifts, and compliance records locally.
