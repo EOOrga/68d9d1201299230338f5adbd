@@ -1,0 +1,3 @@
+CHAUVE MICHEL helps operations teams keep daily business tasks organized from one Android workspace. Track critical assets, monitor service attention, record quality checks, schedule shift coverage, and prepare compliance notes without account setup.
+
+The app is built for site managers, supervisors, and small teams that need fast local records during the operating day. Records stay on the device and can be updated as work changes across receiving, storage, dispatch, and quality review.
